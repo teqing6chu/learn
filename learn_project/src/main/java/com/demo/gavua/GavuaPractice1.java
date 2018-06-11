@@ -9,7 +9,6 @@ import java.math.BigDecimal;
  * Guava Optional类相关方法
  */
 public class GavuaPractice1 {
-
     /**
      *  1.Optional.of(T)：获得一个Optional对象，其内部包含了一个非null的T数据类型实例，若T=null，则立刻报错。
      *  2.abstract boolean isPresent()  含一个(非空)的实例返回true。
