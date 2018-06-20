@@ -1,0 +1,6 @@
+1.配置mbgConfiguration.xml 根据实际需要进行配置
+	具体配置参考文档：http://generator.sturgeon.mopaas.com/index.html
+
+2.运行 CreateSqlXML类的main方法
+
+3.刷新文件，查看生产的xml拷贝到项目，稍加修改即可

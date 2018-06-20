@@ -1,8 +1,12 @@
 package com.demo.gavua;
 
+import com.google.common.base.Function;
 import com.google.common.base.Optional;
+import com.google.common.collect.Maps;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -20,11 +24,11 @@ public class GavuaPractice1 {
         Optional<Integer> optional = Optional.of(a);
         Optional t=Optional.fromNullable(a);
         System.out.println(optional.isPresent());//true
-        System.out.println("返回所包含的实例，它必须存在参数a不能为空。"+t.get());//10
+//    System.out.println("返回所包含的实例，它必须存在参数a不能为空。"+t.get());//10
 
         Integer b=null;
         Optional<Integer> optional_1 = Optional.fromNullable(b);
-        System.out.println("isPresent当值为空时返回false："+optional_1.isPresent());//false
+        //stem.out.println("isPresent当值为空时返回false："+optional_1.isPresent());//false
 
         BigDecimal c =null;
         BigDecimal bigDecimal =Optional.fromNullable(c).or(BigDecimal.ONE);
@@ -40,7 +44,16 @@ public class GavuaPractice1 {
      *  如果实例存在，则它被转换给定的功能;否则absent()被返回。
      */
     public static void test2(){
-
+        Map<String,Integer> map = Maps.newHashMap();
+        map.put("a",100);
+        Optional<Map<String,Integer>> optional = Optional.fromNullable(map);
+        Optional<Boolean> optional11 = optional.transform(new Function<Map<String, Integer>, Boolean>() {
+            @Override
+            public Boolean apply(Map<String, Integer> stringIntegerMap) {
+                return stringIntegerMap.get("a")==100;
+            }
+        });
+        System.out.println("================"+optional11.get());
     }
     public static void main(String[] args) {
         test1();
