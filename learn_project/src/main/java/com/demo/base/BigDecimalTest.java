@@ -1,7 +1,8 @@
 package com.demo.base;
 
+import javax.annotation.Resource;
 import java.math.BigDecimal;
-
+@Resource
 public class BigDecimalTest {
     public static void main(String[] args) {
         double d1=0.0012;

@@ -22,7 +22,7 @@
     </jdbcConnection> -->
     
     <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-        connectionURL="jdbc:mysql://116.196.70.10:3306/autoparts?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true"
+        connectionURL="jdbc:mysql://116.196.70.10:3306/autoparts?characterEncoding=UTF-8"
         userId="shop_rw_all"
         password="sw4KT8Ups">
     </jdbcConnection>
@@ -33,24 +33,23 @@
     </javaTypeResolver>
     
     <!-- 数据表对应的model 层  -->
-    <javaModelGenerator targetPackage="com.putao.vod.dao.model"  targetProject="src">
+    <javaModelGenerator targetPackage="com.putao.vod.dao.model"  targetProject="src/main/java">
       <property name="enableSubPackages" value="true" />
       <property name="trimStrings" value="false" />
     </javaModelGenerator>
     
     <!-- sql mapper 映射配置文件 -->
-    <sqlMapGenerator targetPackage="sqlmapper"  targetProject="src">
+    <sqlMapGenerator targetPackage="sqlmapper"  targetProject="src/main/java">
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
     
     <!-- 在ibatis2 中是dao层，但在mybatis3中，其实就是mapper接口 -->
-    <javaClientGenerator type="XMLMAPPER" targetPackage="com.putao.vod.dao.mapper"  targetProject="src">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.putao.vod.dao.mapper"  targetProject="src/main/java">
       <property name="enableSubPackages" value="true" />
-      
     </javaClientGenerator>
     
     <!-- 要对那些数据表进行生成操作，必须要有一个. -->
-    <table schema="autoparts" tableName="db_brand"
+    <table schema="autoparts" tableName="db_card"
         enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="false"
         selectByExampleQueryId="true" enableSelectByPrimaryKey="true">     

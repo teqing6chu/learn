@@ -6,25 +6,29 @@ import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class CreateSqlXML {
-	  public static void main(String[] args) throws Exception
-	  {
-	    List warnings = new ArrayList();
-	    boolean overwrite = true;
-	    String genCfg = "mbgConfiguration.xml";
-	    File configFile = new File(CreateSqlXML.class.getResource(genCfg).getFile());
-	    ConfigurationParser cp = new ConfigurationParser(warnings);
-	    Configuration config = null;
-	      config = cp.parseConfiguration(configFile);
-	    DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-	    MyBatisGenerator myBatisGenerator = null;
-	      myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-	      myBatisGenerator.generate(null);
-	      
-	      System.out.println("Éú³É³É¹¦£¬ÇëË¢ĞÂºó²é¿´¡£¡£¡£¡£¡£¡£¡£");
-	  }
+	public static void main(String[] args) throws Exception
+	{
+		List warnings = new ArrayList();
+		boolean overwrite = true;
+		String genCfg = "mbgConfiguration.xml";
+		ClassLoader classLoader = CreateSqlXML.class.getClassLoader();
+		System.out.println(classLoader+"=========");
+		URL url =classLoader.getResource(genCfg);
+		File configFile = new File(url.getPath());
+		ConfigurationParser cp = new ConfigurationParser(warnings);
+		Configuration config = null;
+		config = cp.parseConfiguration(configFile);
+		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+		MyBatisGenerator myBatisGenerator = null;
+		myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
+		myBatisGenerator.generate(null);
+
+		System.out.println("ç”ŸæˆæˆåŠŸï¼Œè¯·åˆ·æ–°åæŸ¥çœ‹ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
+	}
 }
